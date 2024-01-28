@@ -10,10 +10,11 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.get('/pdf', async (req: Request, res: Response) => {
-	const pdfBinary = await generatePDF({});
+	generatePDF(res);
 
-	res.setHeader('Content-Type', 'application/pdf');
-	return res.send(pdfBinary);
+	return res;
+	// res.setHeader('Content-Type', 'application/pdf');
+	// return res.send(pdfBinary);
 });
 
 app.listen(port, () => {
